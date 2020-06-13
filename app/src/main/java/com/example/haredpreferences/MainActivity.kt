@@ -8,31 +8,26 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-
-    }
-
-    private fun SetvalueSharedPreferences() {
-
-        if (preferences.name.toString().isNotEmpty() && preferences.age >-1){
-            editTextTextPersonName.setText("welcome your name is ${preferences.name }")
-            editTextNumber.setText("welcome your age is ${preferences.age }")
-
-
-        }else{
-            Toast.makeText(this,"non ci sono dati ",Toast.LENGTH_LONG).show()
-
+        buttonSett.setOnClickListener {
+            SetvalueSharedPreferences()
+            CleanData()
+            GetValueSharedPreferences()
         }
+        GetValueSharedPreferences()
 
     }
+    private fun GetValueSharedPreferences()
+    {
+        if (preferences.name.toString().isNotEmpty() && preferences.age >0){
 
-    private fun GetValueSharedPreferences() {
-        if (editTextTextPersonName.toString().isNotEmpty() && editTextNumber.toString().isNotEmpty()){
-            preferences.name=editTextTextPersonName.toString()
-            preferences.age=editTextNumber.toString().toInt()
+            Toast.makeText(this,"${preferences.name}",Toast.LENGTH_LONG).show()
+
+            textViewSharedPreferences.setText("${preferences.name} , ${preferences.age} ")
+
             Toast.makeText(this,"dati salvat",Toast.LENGTH_LONG).show()
 
         }else{
@@ -41,22 +36,20 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+    private fun SetvalueSharedPreferences() {
 
-    fun onclick(view: View) {
-        when(view.id){
-            R.id.button2->{
-                CleanData()
-            }
-            R.id.buttonSett->{
-                GetValueSharedPreferences();SetvalueSharedPreferences()
-            }
+        if (editTextTextPersonName.text.toString().isNotEmpty() && editTextNumber.text.toString().isNotEmpty()){
+            preferences.name =editTextTextPersonName.text.toString()
+            preferences.age = editTextNumber.getText().toString().toInt()
 
+
+        }else{
+            textViewSharedPreferences.setText("non ci sono dati ")
         }
-
     }
-
     private fun CleanData() {
-        editTextNumber.setText("")
-        editTextTextPersonName.setText("")
+
+        editTextNumber.text.clear()
+        editTextTextPersonName.text.clear()
     }
 }

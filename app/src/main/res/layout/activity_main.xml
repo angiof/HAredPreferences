@@ -13,7 +13,6 @@
         android:layout_marginTop="39dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,26 +32,25 @@
 
     <Button
         android:id="@+id/buttonSett"
-        android:onClick="onclick"
-
         android:layout_width="0dp"
+
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Button"
+        android:text="get and set"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
 
-    <Button
-        android:id="@+id/button2"
+    <TextView
+        android:id="@+id/textViewSharedPreferences"
         android:layout_width="0dp"
-        android:onClick="onclick"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="cancella"
+        android:layout_marginTop="24dp"
+        android:hint="welcome "
+        android:textColorHint="#DF1E1E"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonSett" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
